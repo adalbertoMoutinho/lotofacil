@@ -1,6 +1,5 @@
 <?php
 
-$endereco="localhost/sistematemperatura/index.php";
 
 /*banco de dados*/
 
@@ -10,8 +9,6 @@ $senha_banco_de_dados="guigui12";
 $endereco_banco_de_dados="localhost";
 
 /* ----------------------- */
-$projeto="Sistema de OS";
-$nomedoprojeto="Utec - OS";
 
 
 
