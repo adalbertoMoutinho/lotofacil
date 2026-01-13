@@ -2,13 +2,15 @@
 include "conectar.php";
 
 /*criacao de duas colunas no banco de dados  uma com o nome de soma e outra com o nome de media*/
+
+/*
 $teste=$con->prepare("alter table lotofacil add column soma varchar(10) ,add column media varchar(10)");
 $teste->execute();
-
+*/
 
 /*criando um funcao para colocar os valores no id recebido*/
 
-function acrescentar($id,$soma,$media)
+function acrescentar($id,$soma,$media),$con
 {
 $gravar = $con->prepare ("update lotofacil set soma=:soma, media=:media where id=:id ");
 $gravar->bindValue(":soma",$soma);
@@ -23,9 +25,11 @@ $teste=$con->prepare("select * from lotofacil");
 $teste->execute();
 
 
-{
+
 echo "\n";
-while($linha=$teste->fetch(PDO::FETCH_ASSOC))   $bola1=$linha["bola1"];
+while($linha=$teste->fetch(PDO::FETCH_ASSOC))
+{
+ $bola1=$linha["bola1"];
    $bola2=$linha["bola2"];
    $bola3=$linha["bola3"];
    $bola4=$linha["bola4"];
@@ -48,7 +52,7 @@ while($linha=$teste->fetch(PDO::FETCH_ASSOC))   $bola1=$linha["bola1"];
 	
 	$media = round($soma/15);
 	
-	acrescentar($id,$soma,$media);
+	acrescentar($id,$soma,$media,$con);
 	
 	echo " -- media $media ";
 	
